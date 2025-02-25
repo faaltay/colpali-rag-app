@@ -6,6 +6,8 @@ FROM ${BASE_IMAGE} AS builder
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y git
+
 # Install dependencies without installing the project itself
 RUN --mount=type=bind,source=../uv.lock,target=uv.lock \
     --mount=type=bind,source=../pyproject.toml,target=pyproject.toml \
