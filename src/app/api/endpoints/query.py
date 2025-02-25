@@ -87,9 +87,10 @@ class QueryController:
         query_content.append(prompt_2)
 
         stream = self.instructor_client.completions.create_partial(
-            model="gpt-4o",
+            model="claude-3-7-sonnet-latest",
             response_model=FinalResponse,
             messages=[{"role": "user", "content": query_content}],  # type: ignore
+            context={"query": query},
             temperature=0.0,
             max_tokens=8192,
             max_retries=3,

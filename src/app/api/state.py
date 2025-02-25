@@ -1,4 +1,4 @@
-from openai import AsyncOpenAI
+from anthropic import AsyncAnthropic
 from qdrant_client import AsyncQdrantClient
 from supabase.client import AsyncClient as SupabaseAsyncClient
 
@@ -19,7 +19,5 @@ def create_supabase_client(settings: Settings) -> SupabaseAsyncClient:
     )
 
 
-def create_openai_client(settings: Settings) -> AsyncOpenAI:
-    return AsyncOpenAI(
-        api_key=settings.openai.api_key, base_url=settings.openai.base_url
-    )
+def create_anthropic_client(settings: Settings) -> AsyncAnthropic:
+    return AsyncAnthropic(api_key=settings.anthropic.api_key)

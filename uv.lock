@@ -103,6 +103,24 @@ wheels = [
 ]
 
 [[package]]
+name = "anthropic"
+version = "0.42.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "jiter" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e7/7c/91b79f5ae4a52497a4e330d66ea5929aec2878ee2c9f8a998dbe4f4c7f01/anthropic-0.42.0.tar.gz", hash = "sha256:bf8b0ed8c8cb2c2118038f29c58099d2f99f7847296cafdaa853910bfff4edf4", size = 192361 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ba/33/b907a6d27dd0d8d3adb4edb5c9e9c85a189719ec6855051cce3814c8ef13/anthropic-0.42.0-py3-none-any.whl", hash = "sha256:46775f65b723c078a2ac9e9de44a46db5c6a4fabeacfd165e5ea78e6817f4eff", size = 203365 },
+]
+
+[[package]]
 name = "anyio"
 version = "4.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -123,7 +141,7 @@ source = { editable = "." }
 dependencies = [
     { name = "colpali-engine" },
     { name = "fastapi", extra = ["standard"] },
-    { name = "instructor" },
+    { name = "instructor", extra = ["anthropic"] },
     { name = "loguru" },
     { name = "pdf2image" },
     { name = "pydantic-settings" },
@@ -145,7 +163,7 @@ type = [
 requires-dist = [
     { name = "colpali-engine", git = "https://github.com/illuin-tech/colpali" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.8" },
-    { name = "instructor", specifier = ">=1.7.2" },
+    { name = "instructor", extras = ["anthropic"], specifier = ">=1.7.2" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pdf2image", specifier = ">=1.17.0" },
     { name = "pydantic-settings", specifier = ">=2.8.0" },
@@ -718,6 +736,12 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/63/ba/692739c76959191aa7e5f0fccda871b36548355f4a09c8733687e64e62b0/instructor-1.7.2.tar.gz", hash = "sha256:6c01b2b159766df24865dc81f7bf8457cbda88a3c0bbc810da3467d19b185ed2", size = 66200177 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c5/82/fd319382c1a33d7021cf151007b4cbd5daddf09d9ca5fb670e476668f9fc/instructor-1.7.2-py3-none-any.whl", hash = "sha256:cb43d27f6d7631c31762b936b2fcb44d2a3f9d8a020430a0f4d3484604ffb95b", size = 71353 },
+]
+
+[package.optional-dependencies]
+anthropic = [
+    { name = "anthropic" },
+    { name = "xmltodict" },
 ]
 
 [[package]]
@@ -2306,6 +2330,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/b3/8f/705086c9d734d3b663af0e9bb3d4de6578d08f46b1b101c2442fd9aecaa2/win32_setctime-1.2.0.tar.gz", hash = "sha256:ae1fdf948f5640aae05c511ade119313fb6a30d7eabe25fef9764dca5873c4c0", size = 4867 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e1/07/c6fe3ad3e685340704d314d765b7912993bcb8dc198f0e7a89382d37974b/win32_setctime-1.2.0-py3-none-any.whl", hash = "sha256:95d644c4e708aba81dc3704a116d8cbc974d70b3bdb8be1d150e36be6e9d1390", size = 4083 },
+]
+
+[[package]]
+name = "xmltodict"
+version = "0.14.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/50/05/51dcca9a9bf5e1bce52582683ce50980bcadbc4fa5143b9f2b19ab99958f/xmltodict-0.14.2.tar.gz", hash = "sha256:201e7c28bb210e374999d1dde6382923ab0ed1a8a5faeece48ab525b7810a553", size = 51942 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d6/45/fc303eb433e8a2a271739c98e953728422fa61a3c1f36077a49e395c972e/xmltodict-0.14.2-py2.py3-none-any.whl", hash = "sha256:20cc7d723ed729276e808f26fb6b3599f786cbc37e06c65e192ba77c40f20aac", size = 9981 },
 ]
 
 [[package]]

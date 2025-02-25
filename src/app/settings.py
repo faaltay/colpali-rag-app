@@ -20,16 +20,15 @@ class SupabaseSettings(BaseSettings):
     bucket: str = "colpali"
 
 
-class OpenAISettings(BaseSettings):
-    api_key: str = os.environ.get("OPENAI_API_KEY", "")
-    base_url: str = os.environ.get("OPENAI_BASE_URL", "")
+class AnthropicSettings(BaseSettings):
+    api_key: str = os.environ.get("ANTHROPIC_API_KEY", "")
 
 
 class Settings(BaseSettings):
     qdrant: QdrantSettings = QdrantSettings()
     colpali: ColpaliSettings = ColpaliSettings()
     supabase: SupabaseSettings = SupabaseSettings()
-    openai: OpenAISettings = OpenAISettings()
+    anthropic: AnthropicSettings = AnthropicSettings()
 
 
 @lru_cache

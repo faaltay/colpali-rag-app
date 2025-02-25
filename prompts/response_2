@@ -1,4 +1,10 @@
 </images>
+
+2. You will then receive a user query:
+<query>
+{{ query }}
+</query>
+
 3. Carefully analyze both the images and the query. Identify the relevant information within the images that addresses the user's question.
 
 4. Formulate your response based only on the information found in the images. Your answer may consist of one or more paragraphs, depending on the complexity of the query.

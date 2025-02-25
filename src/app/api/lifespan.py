@@ -4,11 +4,11 @@ from typing import AsyncIterator, TypedDict
 import instructor
 from colpali_engine.models import ColQwen2_5, ColQwen2_5_Processor
 from fastapi import FastAPI
-from instructor import AsyncInstructor, Mode
+from instructor import AsyncInstructor
 from qdrant_client import AsyncQdrantClient
 
 from app.api.state import (
-    create_openai_client,
+    create_anthropic_client,
     create_qdrant_client,
     create_supabase_client,
 )
@@ -32,10 +32,8 @@ class State(TypedDict):
 async def lifespan(app: FastAPI) -> AsyncIterator[State]:
     settings = get_settings()
     qdrant_client = create_qdrant_client(settings=settings)
-    openai_client = create_openai_client(settings=settings)
-    instructor_client = instructor.from_openai(
-        client=openai_client, mode=Mode.TOOLS_STRICT
-    )
+    anthropic_client = create_anthropic_client(settings=settings)
+    instructor_client = instructor.from_anthropic(client=anthropic_client)
     supabase_client = create_supabase_client(settings=settings)
     supabase_uploader = SupabaseJPEGUploader(
         client=supabase_client, bucket_name=settings.supabase.bucket
@@ -57,4 +55,4 @@ async def lifespan(app: FastAPI) -> AsyncIterator[State]:
     }
 
     await qdrant_client.close()
-    await openai_client.close()
+    await anthropic_client.close()
