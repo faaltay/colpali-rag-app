@@ -44,6 +44,7 @@ At inference time, the application queries the Qdrant collection using the ColQw
 * Deployment: [Docker](https://www.docker.com/)
 
 ## Configure
+
 1. **Clone the Git repository to your local machine:**
 ```shell
 git clone https://github.com/jjovalle99/colpali-rag-app.git
@@ -66,6 +67,11 @@ SUPABASE_KEY=fillme
 
 # ANTHROPIC
 ANTHROPIC_API_KEY=fillme
+```
+
+3. **Create your (empty) Qdrant collection**
+```shell
+make create_collection
 ```
 
 ## Installation and Usage
