@@ -73,6 +73,8 @@ ANTHROPIC_API_KEY=fillme
 ```shell
 make create_collection
 ```
+It is configured to use `uv` (`uv run`) but the command is just doing `python scripts/create_collection.py`. If you are not using `uv` you will need to activate
+your environment and then use `python scripts/create_collection.py`
 
 ## Installation and Usage
 
