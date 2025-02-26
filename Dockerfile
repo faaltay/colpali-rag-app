@@ -21,6 +21,11 @@ RUN touch README.md && uv sync --frozen --no-dev
 
 # Stage 2: Prepare the runtime base image
 FROM python:3.12-slim-bookworm AS runtime-base
+
+# Install poppler-utils for pdf2img
+RUN apt-get update && apt-get install -y poppler-utils && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY --from=builder --chown=app:app /app /app
 ENV PATH="/app/.venv/bin:$PATH"
 
