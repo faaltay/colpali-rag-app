@@ -97,7 +97,7 @@ class QueryController:
         )
 
         async for partial in stream:
-            yield partial.model_dump_json()
+            yield partial.model_dump_json() + "\n"
 
 
 @router.post("/query/")
