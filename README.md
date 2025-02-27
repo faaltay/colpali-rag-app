@@ -8,7 +8,7 @@
 </div>
 
 ## UI prototype
-The UI prototype can be found [here]()
+The UI prototype can be found [here](http://129.146.104.226:3000/)
 
 *Note:* The UI will be available for limited time since I need to pay for the hosting.
 
