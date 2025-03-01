@@ -8,7 +8,7 @@
 </div>
 
 ## UI prototype
-The UI prototype can be found [here]()
+The UI prototype can be found [here](http://129.146.104.226:3000/)
 
 *Note:* The UI will be available for limited time since I need to pay for the hosting.
 
@@ -44,6 +44,7 @@ At inference time, the application queries the Qdrant collection using the ColQw
 * Deployment: [Docker](https://www.docker.com/)
 
 ## Configure
+
 1. **Clone the Git repository to your local machine:**
 ```shell
 git clone https://github.com/jjovalle99/colpali-rag-app.git
@@ -67,6 +68,13 @@ SUPABASE_KEY=fillme
 # ANTHROPIC
 ANTHROPIC_API_KEY=fillme
 ```
+
+3. **Create your (empty) Qdrant collection**
+```shell
+make create_collection
+```
+It is configured to use `uv` (`uv run`) but the command is just doing `python scripts/create_collection.py`. If you are not using `uv` you will need to activate
+your environment and then use `python scripts/create_collection.py`
 
 ## Installation and Usage
 
